@@ -13,6 +13,41 @@
       "occupation": "Lives under the sea",
       "weapon": "Crabby Patty",
       "cartoon": true
+    },
+    {
+      "name": "Eddie chung",
+      "occupation": "Actor",
+      "weapon": "dsadasda",
+      "cartoon": "on",
+      "id": 4
+    },
+    {
+      "name": "ewew",
+      "occupation": "fdfas",
+      "weapon": "dsadasda",
+      "cartoon": false,
+      "id": 5
+    },
+    {
+      "name": "eddie chung",
+      "occupation": "",
+      "weapon": "",
+      "cartoon": false,
+      "id": 6
+    },
+    {
+      "name": "",
+      "occupation": "",
+      "weapon": "",
+      "cartoon": false,
+      "id": 7
+    },
+    {
+      "name": "",
+      "occupation": "",
+      "weapon": "",
+      "cartoon": false,
+      "id": 8
     }
   ]
 }

@@ -8,10 +8,11 @@ $(document).ready(() => {
         const { id, name, occupation, weapon, cartoon } = character;
         const characterHtml = `
         <div class="character-info" id="${id}">
-          <div class="name">${name}</div>
-          <div class="occupation">${occupation}</div>
-          <div class="cartoon">${cartoon}</div>
-          <div class="weapon">${weapon}</div>
+          <div class= 'id'>ID: ${id}</div>
+          <div class="name">Name: ${name}</div>
+          <div class="occupation">Occupation: ${occupation}</div>
+          <div class="cartoon">Is a Cartoon? ${cartoon}</div>
+          <div class="weapon">Weapon: ${weapon}</div>
         </div>
         `;
         htmlStr += characterHtml;
@@ -24,11 +25,12 @@ $(document).ready(() => {
     charactersAPI.getOneRegister().then(character => {
       const { id, name, occupation, weapon, cartoon } = character;
       const characterHtml = `
-    <div class="character-info" id="${id}">
-      <div class="name">${name}</div>
-      <div class="occupation">${occupation}</div>
-      <div class="cartoon">${cartoon}</div>
-      <div class="weapon">${weapon}</div>
+      <div class="character-info" id="${id}">
+      <div class= 'id'>ID: ${id}</div>
+      <div class="name">Name: ${name}</div>
+      <div class="occupation">Occupation: ${occupation}</div>
+      <div class="cartoon">Is a Cartoon? ${cartoon}</div>
+      <div class="weapon">Weapon: ${weapon}</div>
     </div>
     `;
       characterArea.innerHTML = characterHtml;
@@ -40,11 +42,26 @@ $(document).ready(() => {
     charactersAPI.deleteOneRegister().then(character => {
       const { id } = character;
       const deleteOne = document.getElementById(id);
-      deleteOne.remove();
+      deleteOne.parentNode.removeChild(deleteOne);
     });
   };
 
   document.getElementById("edit-character-form").onsubmit = function() {};
 
-  document.getElementById("new-character-form").onsubmit = function() {};
+  document.getElementById("new-character-form").onsubmit = function(evt) {
+    evt.preventDefault();
+    charactersAPI.createOneRegister().then(character => {
+      const { id, name, occupation, weapon, cartoon } = character;
+      const characterHtml = `
+      <div class="character-info" id="${id}">
+      <div class= 'id'>ID: ${id}</div>
+      <div class="name">Name: ${name}</div>
+      <div class="occupation">Occupation: ${occupation}</div>
+      <div class="cartoon">Is a Cartoon? ${cartoon}</div>
+      <div class="weapon">Weapon: ${weapon}</div>
+    </div>
+    `;
+      characterArea.innerHTML += characterHtml;
+    });
+  };
 });

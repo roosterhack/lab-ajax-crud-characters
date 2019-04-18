@@ -19,7 +19,12 @@ class APIHandler {
   }
 
   createOneRegister() {
-    return axios.post(`${this.BASE_URL}/characters`).then(response => {
+    const name = document.querySelector("form [name='name']").value;
+    const occupation = document.querySelector('form [name= "occupation"]').value;
+    const weapon = document.querySelector('form [name="weapon"]').value;
+    const cartoon = document.querySelector('form [name="cartoon"]').checked;
+
+    return axios.post(`${this.BASE_URL}/characters`, { name, occupation, weapon, cartoon }).then(response => {
       const { data } = response;
       return data;
     });
